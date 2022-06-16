@@ -1,6 +1,9 @@
 <div>
   <passenger-count [items]="getPassengers()"> </passenger-count>
-  <passenger-detail></passenger-detail>
+  <passenger-detail
+    *ngFor="let passenger of getPassengers()"
+    [detail]="passenger"
+  ></passenger-detail>
   <p>Start editing to see some magic happen :)</p>
 
   <p>passenger-dashboard works!</p>

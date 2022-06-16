@@ -1,1 +1,17 @@
-<div>Detail Compenent</div>
+<div>
+  <h3>Dynamic @input values with *ngFor</h3>
+  <span class="status" [class.checked-in]="detail.checkedIn"></span>
+  {{ detail.fullname }}
+  <div class="date">
+    Check in date :
+    {{
+      detail.checkedInDate
+        ? (detail.checkedInDate | date: 'y MMMM,d' | uppercase)
+        : 'Not checked In'
+    }}
+  </div>
+  <div class="children">
+    Children :
+    {{ detail.children?.length || 0 }}
+  </div>
+</div>
