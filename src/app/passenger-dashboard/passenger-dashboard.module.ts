@@ -6,6 +6,7 @@ import { PassengerCountComponent } from './components/passenger-count/passenger-
 import { PassengerDetailComponent } from './components/passenger-detail/passenger-detail.component';
 import { PassengerDashboardComponent } from './containers/passenger-dashboard/passenger-dashboard.component';
 import { PassnegerDashboardService } from './passenger-dashboard.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { PassnegerDashboardService } from './passenger-dashboard.service';
     PassengerDetailComponent,
     PassengerCountComponent,
   ],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HttpModule],
   exports: [PassengerDashboardComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [PassnegerDashboardService],

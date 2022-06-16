@@ -1,7 +1,6 @@
 import {
   Component,
   OnChanges,
-  OnInit,
   Input,
   Output,
   EventEmitter,
@@ -16,7 +15,7 @@ import { Passenger } from '../../models/passenger.interface';
     '../../../app.component.scss',
   ],
 })
-export class PassengerDetailComponent implements OnChanges, OnInit {
+export class PassengerDetailComponent implements OnChanges {
   @Input()
   detail: Passenger;
 
@@ -32,11 +31,8 @@ export class PassengerDetailComponent implements OnChanges, OnInit {
     if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
-    console.log('On Changes is running before on init');
   }
-  ngOnInit() {
-    console.log('On Init is running after on changes');
-  }
+
   constractor() {}
 
   onNameChange(value: string) {
