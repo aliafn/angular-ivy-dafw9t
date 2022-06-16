@@ -4,7 +4,10 @@ import { Passenger } from '../../models/passenger.interface';
 @Component({
   selector: 'passenger-dashboard',
   templateUrl: './passenger-dashboard.component.html',
-  styleUrls: ['./passenger-dashboard.component.scss'],
+  styleUrls: [
+    './passenger-dashboard.component.scss',
+    '../../../app.component.scss',
+  ],
 })
 export class PassengerDashboardComponent implements OnInit {
   private passengers: Passenger[];
