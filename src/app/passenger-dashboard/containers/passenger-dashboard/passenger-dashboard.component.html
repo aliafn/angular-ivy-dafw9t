@@ -1,5 +1,9 @@
 <div>
   <passenger-count [items]="getPassengers()"> </passenger-count>
+  <div *ngFor="let passenger of getPassengers()">
+    {{ passenger.fullname }}
+  </div>
+
   <passenger-detail
     *ngFor="let passenger of getPassengers()"
     [detail]="passenger"
