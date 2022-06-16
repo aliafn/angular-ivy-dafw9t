@@ -2,6 +2,31 @@
 <template> </template>
 <p>Start editing to see some magic happen :)</p>
 
+<h3>Pipes with NgFor</h3>
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+    <!-- this element | is a pipe element 
+      and we are converting the object here to json object 
+      we could use this to debug
+    -->
+    <p>{{ passenger | json }}</p>
+
+    <div class="date">
+      <!-- this element | is a pipe element 
+     we are formating the date here using pipe 
+    -->
+      Check in date :
+      {{
+        passenger.checkedInDate
+          ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
+          : 'Not checked In'
+      }}
+    </div>
+  </li>
+</uL>
+
 <h3>Ng For</h3>
 
 <uL>
@@ -18,6 +43,30 @@
       [ngClass]="{
         'checked-in': passenger.checkedIn,
         'checked-out': !passenger.checkedIn
+      }"
+    ></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+  </li>
+</uL>
+
+<h3>Ng For with style</h3>
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span
+      class="status"
+      [style.backgroundColor]="passenger.checkedIn ? '#2ecc91' : '#c0392b'"
+    ></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+  </li>
+</uL>
+
+<h3>Ng For with multi style</h3>
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span
+      class="status"
+      [ngStyle]="{
+        backgroundColor: passenger.checkedIn ? '#2ecc91' : '#c0392b'
       }"
     ></span>
     {{ i + 1 }} : {{ passenger.fullname }}
