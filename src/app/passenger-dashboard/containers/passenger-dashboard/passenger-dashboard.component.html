@@ -1,151 +1,161 @@
-<p>Start editing to see some magic happen :)</p>
+<div>
+  <passenger-count></passenger-count>
+  <passenger-details></passenger-details>
+  <p>Start editing to see some magic happen :)</p>
 
-<p>passenger-dashboard works!</p>
+  <p>passenger-dashboard works!</p>
 
-<h3>Safe navigation</h3>
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-    <div class="date">
-      Check in date :
-      {{
-        passenger.checkedInDate
-          ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
-          : 'Not checked In'
-      }}
-    </div>
-    <div class="children">
-      Children :
-      <!--Safe navigation-->
-      {{ passenger.children?.length || 0 }}
-    </div>
-  </li>
-</uL>
+  <h3>Safe navigation</h3>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+      <div class="date">
+        Check in date :
+        {{
+          passenger.checkedInDate
+            ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
+            : 'Not checked In'
+        }}
+      </div>
+      <div class="children">
+        Children :
+        <!--Safe navigation-->
+        {{ passenger.children?.length || 0 }}
+      </div>
+    </li>
+  </uL>
 
-<h3>Pipes with NgFor</h3>
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-    <!-- this element | is a pipe element 
+  <h3>Pipes with NgFor</h3>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+      <!-- this element | is a pipe element 
       and we are converting the object here to json object 
       we could use this to debug
     -->
-    <p>{{ passenger | json }}</p>
+      <p>{{ passenger | json }}</p>
 
-    <div class="date">
-      <!-- this element | is a pipe element 
+      <div class="date">
+        <!-- this element | is a pipe element 
      we are formating the date here using pipe 
     -->
-      Check in date :
-      {{
-        passenger.checkedInDate
-          ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
-          : 'Not checked In'
-      }}
-    </div>
-  </li>
-</uL>
-
-<h3>Ng For</h3>
-
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-  </li>
-</uL>
-<h3>Ng For multi classes</h3>
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span
-      class="status"
-      [ngClass]="{
-        'checked-in': passenger.checkedIn,
-        'checked-out': !passenger.checkedIn
-      }"
-    ></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-  </li>
-</uL>
-
-<h3>Ng For with style</h3>
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span
-      class="status"
-      [style.backgroundColor]="passenger.checkedIn ? '#2ecc91' : '#c0392b'"
-    ></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-  </li>
-</uL>
-
-<h3>Ng For with multi style</h3>
-<uL>
-  <li *ngFor="let passenger of getPassengers(); let i = index">
-    <span
-      class="status"
-      [ngStyle]="{
-        backgroundColor: passenger.checkedIn ? '#2ecc91' : '#c0392b'
-      }"
-    ></span>
-    {{ i + 1 }} : {{ passenger.fullname }}
-  </li>
-</uL>
-
-<h3>Ng For with Template</h3>
-<div>
-  <uL>
-    <ng-template ngFor let-passenger let-i="index" [ngForOf]="getPassengers()">
-      <li>{{ i + 1 }} : {{ passenger.fullname }}</li>
-    </ng-template>
+        Check in date :
+        {{
+          passenger.checkedInDate
+            ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
+            : 'Not checked In'
+        }}
+      </div>
+    </li>
   </uL>
-</div>
 
-<h4 [innerHTML]="agent"></h4>
-<h4 [innerHTML]="cust"></h4>
-<!-- <img [src]="imagSrc" />-->
-<h3>Handle binding</h3>
-<div>
-  <input
-    type="text"
-    [value]="agent"
-    (blur)="handleBlur($event)"
-    (input)="handleInput($event)"
-  />
-</div>
+  <h3>Ng For</h3>
 
-<div>
-  <button (click)="handleClick()">Click Me</button>
-</div>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+    </li>
+  </uL>
+  <h3>Ng For multi classes</h3>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span
+        class="status"
+        [ngClass]="{
+          'checked-in': passenger.checkedIn,
+          'checked-out': !passenger.checkedIn
+        }"
+      ></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+    </li>
+  </uL>
 
-<!-- It needs FormsModule -->
-<h3>FormsModule</h3>
-<div>
-  <input [ngModel]="name" (ngModelChange)="handleChange($event)" />
-</div>
+  <h3>Ng For with style</h3>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span
+        class="status"
+        [style.backgroundColor]="passenger.checkedIn ? '#2ecc91' : '#c0392b'"
+      ></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+    </li>
+  </uL>
 
-<div>
-  <input [(ngModel)]="cust" #agentCust />
-</div>
+  <h3>Ng For with multi style</h3>
+  <uL>
+    <li *ngFor="let passenger of getPassengers(); let i = index">
+      <span
+        class="status"
+        [ngStyle]="{
+          backgroundColor: passenger.checkedIn ? '#2ecc91' : '#c0392b'
+        }"
+      ></span>
+      {{ i + 1 }} : {{ passenger.fullname }}
+    </li>
+  </uL>
 
-<h3>Ng IF</h3>
-<div>
-  <input type="number" #agentAge />
-</div>
-<div *ngIf="age > 20">
-  {{ age }}
-</div>
-<div>
-  <button (click)="handleChangeAge(agentAge.value)">Change Age</button>
-</div>
-<!-- it causes a problems to the form see console 
+  <h3>Ng For with Template</h3>
+  <div>
+    <uL>
+      <ng-template
+        ngFor
+        let-passenger
+        let-i="index"
+        [ngForOf]="getPassengers()"
+      >
+        <li>{{ i + 1 }} : {{ passenger.fullname }}</li>
+      </ng-template>
+    </uL>
+  </div>
+
+  <h4 [innerHTML]="agent"></h4>
+  <h4 [innerHTML]="cust"></h4>
+  <!-- <img [src]="imagSrc" />-->
+  <h3>Handle binding</h3>
+  <div>
+    <input
+      type="text"
+      [value]="agent"
+      (blur)="handleBlur($event)"
+      (input)="handleInput($event)"
+    />
+  </div>
+
+  <div>
+    <button (click)="handleClick()">Click Me</button>
+  </div>
+
+  <!-- It needs FormsModule -->
+  <h3>FormsModule</h3>
+  <div>
+    <input [ngModel]="name" (ngModelChange)="handleChange($event)" />
+  </div>
+
+  <div>
+    <input [(ngModel)]="cust" #agentCust />
+  </div>
+
+  <h3>Ng IF</h3>
+  <div>
+    <input type="number" #agentAge />
+  </div>
+  <div *ngIf="age > 20">
+    {{ age }}
+  </div>
+  <div>
+    <button (click)="handleChangeAge(agentAge.value)">Change Age</button>
+  </div>
+  <!-- it causes a problems to the form see console 
      is it better from *ngIf
      can we use it by calling it 
 -->
-<!--<template [ngIf]="age > 20">
+  <!--<template [ngIf]="age > 20">
   <div>
     {{ age }}
   </div>
 </template>-->
+  <div></div>
+</div>
