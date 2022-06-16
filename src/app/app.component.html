@@ -4,6 +4,35 @@
 
 <h3>Ng For</h3>
 
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+  </li>
+</uL>
+<h3>Ng For multi classes</h3>
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span
+      class="status"
+      [ngClass]="{
+        'checked-in': passenger.checkedIn,
+        'checked-out': !passenger.checkedIn
+      }"
+    ></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+  </li>
+</uL>
+
+<h3>Ng For with Template</h3>
+<div>
+  <uL>
+    <ng-template ngFor let-passenger let-i="index" [ngForOf]="getPassengers()">
+      <li>{{ i + 1 }} : {{ passenger.fullname }}</li>
+    </ng-template>
+  </uL>
+</div>
+
 <h4 [innerHTML]="agent"></h4>
 <h4 [innerHTML]="cust"></h4>
 <!-- <img [src]="imagSrc" />-->

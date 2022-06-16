@@ -4,3 +4,14 @@ p {
 div {
   padding: 5%;
 }
+.status {
+  width: 10 px;
+  height: 10px;
+  background: #c0392b;
+  display: block;
+  margin: 8px 10px 0 0;
+  border-radius: 50%;
+  &.checked-in {
+    background: #2ecc91;
+  }
+}

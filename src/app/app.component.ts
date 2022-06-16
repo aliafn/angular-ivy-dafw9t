@@ -12,28 +12,32 @@ interface Passenger {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  passengers: Passenger[] = [
+  private passengers: Passenger[] = [
     {
       id: 1,
-      fullname: 'ali',
+      fullname: 'ali1',
       checkedIn: true,
     },
     {
-      id: 1,
-      fullname: 'ali',
+      id: 2,
+      fullname: 'ali2',
+      checkedIn: false,
+    },
+    {
+      id: 3,
+      fullname: 'ali3',
       checkedIn: true,
     },
     {
-      id: 1,
-      fullname: 'ali',
-      checkedIn: true,
-    },
-    {
-      id: 1,
-      fullname: 'ali',
-      checkedIn: true,
+      id: 4,
+      fullname: 'ali4',
+      checkedIn: false,
     },
   ];
+
+  getPassengers() {
+    return this.passengers;
+  }
 
   name = 'Angular ' + VERSION.major;
   agent = 'Ali';
