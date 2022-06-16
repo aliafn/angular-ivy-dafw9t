@@ -1,0 +1,37 @@
+<hello name="{{ name }}"></hello>
+<template> </template>
+<p>Start editing to see some magic happen :)</p>
+
+<h1 [innerHTML]="agent"></h1>
+<h2 [innerHTML]="cust"></h2>
+<!-- <img [src]="imagSrc" />-->
+<div>
+  <input
+    type="text"
+    [value]="agent"
+    (blur)="handleBlur($event)"
+    (input)="handleInput($event)"
+  />
+</div>
+
+<div>
+  <button (click)="handleClick()">Click Me</button>
+</div>
+
+<!-- It needs FormsModule-->
+<div>
+  <input [ngModel]="name" (ngModelChange)="handleChange($event)" />
+</div>
+
+<div>
+  <input [(ngModel)]="cust" #agentCust />
+</div>
+
+<div>
+  <input type="number" #agentAge />
+  {{ age }}
+</div>
+
+<div>
+  <button (click)="handleChangeAge(agentAge.value)">Change Age</button>
+</div>
