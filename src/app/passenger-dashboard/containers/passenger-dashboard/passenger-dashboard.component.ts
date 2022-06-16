@@ -81,4 +81,12 @@ export class PassengerDashboardComponent implements OnInit {
   handleChangeAge(value1: string) {
     this.age = Number(value1);
   }
+
+  handleRemove(event: any) {
+    console.log(event);
+  }
+
+  handleEdit(event: any) {
+    console.log(event);
+  }
 }

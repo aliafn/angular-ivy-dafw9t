@@ -3,6 +3,8 @@
   <passenger-detail
     *ngFor="let passenger of getPassengers()"
     [detail]="passenger"
+    (remove)="handleRemove($event)"
+    (edit)="handleEdit($event)"
   ></passenger-detail>
   <p>Start editing to see some magic happen :)</p>
 
