@@ -2,9 +2,12 @@
 <template> </template>
 <p>Start editing to see some magic happen :)</p>
 
-<h1 [innerHTML]="agent"></h1>
-<h2 [innerHTML]="cust"></h2>
+<h3>Ng For</h3>
+
+<h4 [innerHTML]="agent"></h4>
+<h4 [innerHTML]="cust"></h4>
 <!-- <img [src]="imagSrc" />-->
+<h3>Handle binding</h3>
 <div>
   <input
     type="text"
@@ -18,7 +21,8 @@
   <button (click)="handleClick()">Click Me</button>
 </div>
 
-<!-- It needs FormsModule-->
+<!-- It needs -->
+<h3>FormsModule</h3>
 <div>
   <input [ngModel]="name" (ngModelChange)="handleChange($event)" />
 </div>
@@ -27,11 +31,22 @@
   <input [(ngModel)]="cust" #agentCust />
 </div>
 
+<h3>Ng IF</h3>
 <div>
   <input type="number" #agentAge />
+</div>
+<div *ngIf="age > 20">
   {{ age }}
 </div>
-
 <div>
   <button (click)="handleChangeAge(agentAge.value)">Change Age</button>
 </div>
+<!-- it causes a problems to the form see console 
+     is it better from *ngIf
+     can we use it by calling it 
+-->
+<!--<template [ngIf]="age > 20">
+  <div>
+    {{ age }}
+  </div>
+</template>-->

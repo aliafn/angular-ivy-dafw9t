@@ -1,11 +1,40 @@
 import { Component, VERSION } from '@angular/core';
 
+interface Passenger {
+  id: number;
+  fullname: string;
+  checkedIn: boolean;
+}
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  passengers: Passenger[] = [
+    {
+      id: 1,
+      fullname: 'ali',
+      checkedIn: true,
+    },
+    {
+      id: 1,
+      fullname: 'ali',
+      checkedIn: true,
+    },
+    {
+      id: 1,
+      fullname: 'ali',
+      checkedIn: true,
+    },
+    {
+      id: 1,
+      fullname: 'ali',
+      checkedIn: true,
+    },
+  ];
+
   name = 'Angular ' + VERSION.major;
   agent = 'Ali';
   cust: number = 1000;
