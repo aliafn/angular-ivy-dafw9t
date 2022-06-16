@@ -1,7 +1,9 @@
+import { Passenger } from './models/passenger.interface';
+
 export class PassnegerDashboardService {
   constructor() {}
 
-  getPassengers() {
+  getPassengers(): Passenger[] {
     return [
       {
         id: 1,
