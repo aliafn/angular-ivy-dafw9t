@@ -14,7 +14,6 @@ export class PassengerDashboardComponent implements OnInit {
   private passengers: Passenger[];
   constructor(private passengerService: PassnegerDashboardService) {}
   ngOnInit() {
-    console.log('onInit');
     this.passengers = this.passengerService.getPassengers();
   }
 
