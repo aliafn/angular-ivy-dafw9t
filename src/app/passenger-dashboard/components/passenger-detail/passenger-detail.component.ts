@@ -13,6 +13,9 @@ export class PassengerDetailComponent {
   @Input()
   detail: Passenger;
 
+  @Output()
+  edit: EventEmitter<any> = new EventEmitter();
+
   editing: boolean = false;
 
   @Output()
@@ -24,6 +27,9 @@ export class PassengerDetailComponent {
     this.detail.fullname = value;
   }
   toggleEdit() {
+    if (this.editing) {
+      this.edit.emit(this.detail);
+    }
     this.editing = !this.editing;
   }
   onRemove() {
