@@ -2,6 +2,27 @@
 <template> </template>
 <p>Start editing to see some magic happen :)</p>
 
+<h3>Safe navigation</h3>
+<uL>
+  <li *ngFor="let passenger of getPassengers(); let i = index">
+    <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+    {{ i + 1 }} : {{ passenger.fullname }}
+    <div class="date">
+      Check in date :
+      {{
+        passenger.checkedInDate
+          ? (passenger.checkedInDate | date: 'y MMMM,d' | uppercase)
+          : 'Not checked In'
+      }}
+    </div>
+    <div class="children">
+      Children :
+      <!--Safe navigation-->
+      {{ passenger.children?.length || 0 }}
+    </div>
+  </li>
+</uL>
+
 <h3>Pipes with NgFor</h3>
 <uL>
   <li *ngFor="let passenger of getPassengers(); let i = index">
